@@ -65,17 +65,30 @@
   if (list && window.Flip) {
     gsap.registerPlugin(Flip);
     window.mcFlipList = function (apply) {
-      /* a lista magasságát rögzítjük az animáció idejére, különben a következő szekció felugrik */
+      /* futo animacio megszakitasa: kulonben a regi abszolut kartyak rajta ragadnak a kovetkezo szekcion */
+      if (list.__ftl) { list.__ftl.progress(1, true); list.__ftl.kill(); list.__ftl = null; }
+      gsap.killTweensOf(list);
+      gsap.killTweensOf(list.children);
+      gsap.set(list.children, { clearProps: 'all' });
+      [].forEach.call(list.children, function (el) { el.style.position = ''; el.style.top = ''; el.style.left = ''; el.style.width = ''; el.style.height = ''; });
+      list.style.minHeight = '';
       var h0 = list.offsetHeight;
-      list.style.minHeight = h0 + 'px';
       var state = Flip.getState(list.children);
       apply();
       var h1 = list.offsetHeight;
+      /* a lista magassagat rogzitjuk az animacio idejere, kulonben a kovetkezo szekcio felugrik */
       list.style.minHeight = Math.max(h0, h1) + 'px';
-      Flip.from(state, { duration: 0.65, ease: 'power3.inOut', stagger: 0.02, absolute: true,
+      /* absoluteOnLeave: csak a tavozo kartyak esnek ki a flow-bol, a maradok nem -> a lista magassaga
+         mindig valos, a kovetkezo szekcio nem tud rakuszni a racsra */
+      list.__ftl = Flip.from(state, { duration: 0.65, ease: 'power3.inOut', stagger: 0.02, absoluteOnLeave: true,
         onEnter: function (els) { return gsap.fromTo(els, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.5 }); },
         onLeave: function (els) { return gsap.to(els, { opacity: 0, scale: 0.96, duration: 0.3 }); },
-        onComplete: function () { gsap.to(list, { minHeight: h1, duration: 0.4, ease: 'power2.inOut', onComplete: function () { list.style.minHeight = ''; ScrollTrigger.refresh(); } }); } });
+        onComplete: function () {
+          list.__ftl = null;
+          gsap.to(list, { minHeight: h1, duration: 0.4, ease: 'power2.inOut',
+            onComplete: function () { list.style.minHeight = ''; ScrollTrigger.refresh(); } });
+        },
+        onInterrupt: function () { list.__ftl = null; list.style.minHeight = ''; } });
     };
   }
 })();
