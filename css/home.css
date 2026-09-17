@@ -16,7 +16,7 @@
 .hero-w__mark .w{display:inline-block;overflow:hidden;vertical-align:top}
 .hero-w__mark .w span{display:inline-block}
 .hero-w__sub{margin-top:1.2rem;font-size:clamp(.72rem,1vw,.9rem);letter-spacing:.42em;text-transform:uppercase;color:#D9D5C8}
-.hero-w__foot{position:absolute;right:var(--pad);bottom:7vh;z-index:2;max-width:38ch;text-align:right;color:#D9D5C8;font-size:var(--step-1)}
+.hero-w__foot{position:absolute;right:var(--edge);bottom:7vh;z-index:2;max-width:38ch;text-align:right;color:#D9D5C8;font-size:var(--step-1)}
 .hero-w__foot .btn{margin-top:1.2rem}
 .js .hero-w__mark .w span{transform:translateY(110%)}
 .js .hero-w.is-in .hero-w__mark .w span{transform:translateY(0);transition:transform 1.1s var(--ease-out)}

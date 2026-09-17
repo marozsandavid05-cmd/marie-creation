@@ -16,7 +16,7 @@
   --step-3:clamp(2.2rem,4.8vw,3.8rem);
   --step-4:clamp(3rem,7vw,5.6rem);
   --step-5:clamp(3.6rem,9.5vw,8.4rem);
-  --pad:clamp(1.4rem,5vw,6rem);--maxw:1400px;
+  --pad:clamp(1.4rem,5vw,6rem);--maxw:1400px;--edge:max(var(--pad),calc((100vw - 1560px) / 2));
   --ease-out:cubic-bezier(.23,1,.32,1);
   --ease-io:cubic-bezier(.77,0,.175,1);
 }
@@ -259,7 +259,7 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
 .credo>div::before{content:attr(data-letter);display:block;font-family:var(--font-display);font-style:italic;font-size:4.2rem;line-height:.9;color:var(--copper);margin-bottom:.9rem}
 .credo h3{font-size:var(--step-1);font-family:var(--font-ui);font-weight:500;letter-spacing:.1em;text-transform:uppercase}
 .credo p{margin-top:.7rem;font-size:.95rem;color:var(--muted)}
-@media(max-width:760px){.credo{grid-template-columns:1fr;gap:2.6rem}.credo-lead{max-width:16ch}}
+@media(max-width:900px){.credo{grid-template-columns:1fr;gap:2.4rem;max-width:34rem;margin-inline:auto}.credo-lead{max-width:16ch}}
 
 .shop-filter{display:flex;gap:.6rem 1.8rem;flex-wrap:wrap;margin-top:2.4rem}
 .shop-filter button{font-size:.84rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:.35rem 0;position:relative;transition:color .25s}
