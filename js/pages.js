@@ -60,35 +60,35 @@
     tl.to(c, { scale: 1, duration: 0.36, ease: 'power2.inOut' }, 0.64);
   } else if (zg) { zg.classList.add('is-static'); }
 
-  /* shop: Flip-alapú szűrés és rács-sűrűség váltás */
+  /* shop: szűrés és rács-sűrűség váltás. NEM Flip: a kártyák sosem esnek ki a folyamból,
+     a lista magassága animálódik, így a következő szekció nem tud rácsúszni a rácsra. */
   var list = document.querySelector('.plist');
-  if (list && window.Flip) {
-    gsap.registerPlugin(Flip);
+  if (list) {
     window.mcFlipList = function (apply) {
-      /* futo animacio megszakitasa: kulonben a regi abszolut kartyak rajta ragadnak a kovetkezo szekcion */
-      if (list.__ftl) { list.__ftl.progress(1, true); list.__ftl.kill(); list.__ftl = null; }
-      gsap.killTweensOf(list);
-      gsap.killTweensOf(list.children);
-      gsap.set(list.children, { clearProps: 'all' });
-      [].forEach.call(list.children, function (el) { el.style.position = ''; el.style.top = ''; el.style.left = ''; el.style.width = ''; el.style.height = ''; });
-      list.style.minHeight = '';
+      var cards = [].slice.call(list.querySelectorAll('.pcard'));
+      if (list.__busy) { list.__busy.kill(); list.__busy = null; }
+      gsap.killTweensOf(cards); gsap.killTweensOf(list);
+      gsap.set(cards, { clearProps: 'opacity,transform' });
+      list.style.height = ''; list.style.overflow = '';
       var h0 = list.offsetHeight;
-      var state = Flip.getState(list.children);
-      apply();
-      var h1 = list.offsetHeight;
-      /* a lista magassagat rogzitjuk az animacio idejere, kulonben a kovetkezo szekcio felugrik */
-      list.style.minHeight = Math.max(h0, h1) + 'px';
-      /* absoluteOnLeave: csak a tavozo kartyak esnek ki a flow-bol, a maradok nem -> a lista magassaga
-         mindig valos, a kovetkezo szekcio nem tud rakuszni a racsra */
-      list.__ftl = Flip.from(state, { duration: 0.65, ease: 'power3.inOut', stagger: 0.02, absoluteOnLeave: true,
-        onEnter: function (els) { return gsap.fromTo(els, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.5 }); },
-        onLeave: function (els) { return gsap.to(els, { opacity: 0, scale: 0.96, duration: 0.3 }); },
-        onComplete: function () {
-          list.__ftl = null;
-          gsap.to(list, { minHeight: h1, duration: 0.4, ease: 'power2.inOut',
-            onComplete: function () { list.style.minHeight = ''; ScrollTrigger.refresh(); } });
-        },
-        onInterrupt: function () { list.__ftl = null; list.style.minHeight = ''; } });
+      var before = cards.filter(function (c) { return !c.hidden; });
+      function done() {
+        list.style.height = ''; list.style.overflow = ''; list.__busy = null;
+        gsap.set(cards, { clearProps: 'opacity,transform' });
+        if (window.ScrollTrigger) ScrollTrigger.refresh();
+      }
+      var tl = gsap.timeline({ onComplete: done, onInterrupt: done });
+      list.__busy = tl;
+      tl.to(before, { opacity: 0, duration: 0.2, ease: 'power1.out', stagger: 0.012 });
+      tl.call(function () {
+        apply();
+        var h1 = list.offsetHeight;
+        var after = cards.filter(function (c) { return !c.hidden; });
+        gsap.set(after, { opacity: 0, y: 12 });
+        gsap.set(list, { height: h0, overflow: 'hidden' });
+        tl.to(list, { height: h1, duration: 0.45, ease: 'power2.inOut' }, '>');
+        tl.to(after, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.04 }, '<0.1');
+      });
     };
   }
 })();
