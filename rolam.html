@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.className += ' js';</script>
+<title>Rólam · Marie Creation</title>
+<meta name="description" content="Nagy Mariann, a Marie Creation alapítója: lakberendező belsőépítész végzettséggel, saját varrodával.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/pages.css">
+<style>
+/* editorial nyitás: állítás teljes szélességben, alatta álló kép + szöveg + fonallal varrt aláírás */
+.about{padding:calc(4.5rem + 6vh) 0 clamp(3rem,8vh,6rem)}
+.about__lead{font-size:clamp(2.2rem,5.6vw,5.6rem);line-height:1.06;color:var(--navy);max-width:none}
+.about__lead span{display:block}
+.about__l2{text-align:right}
+.about__lead em{color:var(--copper-deep)}
+.about__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(1.6rem,4vw,4rem);align-items:start;margin-top:clamp(3rem,7vh,5.5rem)}
+.about__img{grid-column:1/6;aspect-ratio:4/5;overflow:hidden;background:var(--paper-2);margin:0}
+.about__img img{width:100%;height:114%;object-fit:cover;display:block}
+.about__txt{grid-column:7/13;padding-top:clamp(.5rem,2vw,2rem)}
+.about__txt .about__name{font-family:var(--font-display);font-size:var(--step-2);line-height:1.2;color:var(--navy);max-width:none}
+.about__txt p{color:var(--ink);font-size:clamp(1.05rem,1.35vw,1.25rem);line-height:1.72;max-width:52ch}
+.about__txt p+p{margin-top:1.3rem}
+.about__txt .about__name+p{margin-top:1.8rem}
+@media(max-width:860px){.about__grid{grid-template-columns:1fr;gap:2rem}.about__img,.about__txt{grid-column:1}.about__img{max-width:480px}.about__l2{text-align:left}}
+.sig{margin-top:2.4rem;width:min(320px,60vw);height:auto;overflow:visible}
+.sig path{fill:var(--copper-deep);fill-opacity:0;stroke:var(--copper-deep);stroke-width:1.3;stroke-linejoin:round}
+.sig-fallback{margin-top:2rem;font-family:var(--font-display);font-style:italic;font-size:2.2rem;color:var(--copper-deep);display:none}
+.no-font .sig-fallback{display:block}.no-font .sig{display:none}
+@media(max-width:760px){.about__grid{grid-template-columns:1fr}.about__grid h1{position:static}}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.6rem,3vw,3rem);padding-block:clamp(4rem,10vh,7rem)}
+.facts div{padding-top:1.2rem}
+.facts strong{display:block;font-family:var(--font-display);font-size:var(--step-3);line-height:1;color:var(--navy)}
+.facts span{display:block;margin-top:.5rem;color:var(--muted)}
+@media(max-width:640px){.facts{grid-template-columns:1fr}}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,2.4vw,2.4rem)}
+.pair figure{overflow:hidden;background:var(--paper-2)}
+.pair img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav__brand"><img src="media/lotusz-emblema.png" alt=""><span class="nav__brand-text"><span class="nav__brand-name">Marie Creation</span><span class="nav__brand-sub">Interior Design</span></span></a>
+  <div class="nav__links"><a class="nav__link" href="fuggony.html">Függöny és textil</a><a class="nav__link" href="butor.html">Bútortervezés</a><a class="nav__link" href="lakberendezes.html">Lakberendezés</a><a class="nav__link" href="shop.html">Webshop</a><a class="nav__link is-active" href="rolam.html">Rólam</a><button class="nav__cart" aria-label="Kosár"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 7h12l1 13H5L6 7Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg><span class="nav__cart-badge"></span></button><a class="btn btn--copper nav__cta" href="kapcsolat.html" style="padding:.7rem 1.5rem;font-size:.78rem;margin-left:.4rem">Időpontkérés</a></div>
+  <button class="nav__burger" aria-label="Menü"><span></span><span></span><span></span></button>
+</nav>
+<div class="mnav"><a href="fuggony.html">Függöny és textil</a><a href="butor.html">Bútortervezés</a><a href="lakberendezes.html">Lakberendezés</a><a href="shop.html">Webshop</a><a href="rolam.html">Rólam</a><a href="kapcsolat.html">Kapcsolat</a></div>
+
+<header class="about wrap" id="about">
+  <h1 class="about__lead"><span class="about__l1" data-reveal>Amióta az eszemet tudom,</span><span class="about__l2" data-reveal="2"><em>terekben és anyagokban</em> gondolkodom.</span></h1>
+  <div class="about__grid">
+    <figure class="about__img clipr"><img src="media/stock/px-6044705.jpg" alt="Lenvászon árnyékkal" data-cover></figure>
+    <div class="about__txt">
+      <p class="about__name">Nagy Mariann vagyok.</p>
+      <p data-reveal>Belsőépítész végzettséggel tervezek, de a kezem soha nem engedte el a tűt: a függönyöket, párnákat és terítőket ma is én magam varrom a varrodámban. A Marie Creation abból a meggyőződésből született, hogy a jó tér nem díszlet, hanem a mindennapok kerete. Egy jól eső fény, egy kézre álló konyha, egy függöny, ami pont úgy esik, ahogy kell: ezek teszik az otthont otthonná.</p>
+      <p data-reveal>Lakásokat, panziókat és vendégtereket egyaránt tervezek, mindent, amihez nem kell építési engedély. A textil pedig a védjegyem: nálam a tervezőasztal és a varrógép ugyanabban a műhelyben áll.</p>
+      <svg class="sig" id="sig" xmlns="http://www.w3.org/2000/svg" aria-label="Mariann aláírása"></svg>
+      <div class="sig-fallback">Mariann</div>
+    </div>
+  </div>
+</header>
+
+
+<section class="wrap">
+  <div class="facts">
+    <div data-reveal><strong>Belsőépítész</strong><span>végzettséggel tervezek</span></div>
+    <div data-reveal="2"><strong>Saját varroda</strong><span>minden textil itt készül</span></div>
+    <div data-reveal="3"><strong>Egy kéz</strong><span>a tervtől a felszerelésig</span></div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-block:0 clamp(5rem,12vh,9rem)">
+  <h2 data-split style="font-size:var(--step-3);max-width:18ch">Három dolog, amit minden munkámba <em>belevarrok</em></h2>
+  <div class="credo" style="margin-top:4rem">
+    <div data-reveal data-letter="m"><h3>Mérték</h3><p>Nem katalógusból dolgozom. Minden terv és minden textil az adott térre, az ott élők szokásaira készül.</p></div>
+    <div data-reveal="2" data-letter="k"><h3>Kézművesség</h3><p>A gépi tökéletesség helyett a kézi munka melegét adom: látszik rajta, hogy ember készítette, és ez így van jól.</p></div>
+    <div data-reveal="3" data-letter="k"><h3>Kíséret</h3><p>Nem hagyom magára a tervekkel. A felméréstől az utolsó függönykarikáig ott vagyok a folyamatban.</p></div>
+  </div>
+</section>
+
+<section class="zoomg" aria-label="A műhely">
+  <div class="zoomg__pin">
+    <figure class="zoomg__img zoomg__c"><img src="media/stock/px-2974116.jpg" alt="Varroda ablakfényben"></figure>
+    <figure class="zoomg__img zoomg__s zoomg__s1"><img src="media/makrame-keszites.jpg" alt="Makramé csomózása"></figure>
+    <figure class="zoomg__img zoomg__s zoomg__s2"><img src="media/stock/px-4614217.jpg" alt="Halmozott textilek"></figure>
+    <figure class="zoomg__img zoomg__s zoomg__s3"><img src="media/stock/px-3965540.jpg" alt="Cérnaorsók"></figure>
+    <figure class="zoomg__img zoomg__s zoomg__s4"><img src="media/himzett-anyagok.jpg" alt="Hímzett anyagok"></figure>
+    <figure class="zoomg__img zoomg__s zoomg__s5"><img src="media/anyag-szegett-rozsa.jpg" alt="Szegett textil"></figure>
+    <figure class="zoomg__img zoomg__s zoomg__s6"><img src="media/viragos-textil-minta.jpg" alt="Virágmintás textil"></figure>
+    <figure class="zoomg__img zoomg__s zoomg__s7"><img src="media/stock/px-12432204.jpg" alt="Virágos függöny"></figure>
+    <figure class="zoomg__img zoomg__s zoomg__s8"><img src="media/fuggony-bezs-zold.jpg" alt="Függöny szegéllyel"></figure>
+    <span class="zoomg__cap">A műhely, ahol minden készül</span>
+  </div>
+</section>
+
+<footer class="footer"><div class="wrap">
+  <div class="footer__grid">
+    <div class="footer__brand"><img src="media/lotusz-emblema.png" alt="Marie Creation"><p>Lakberendezés és lakástextil belsőépítész szemlélettel. Tervezés, varrás és kivitelezés egy kézben.</p></div>
+    <div><h4>Szolgáltatások</h4><ul><li><a href="fuggony.html">Függöny és lakástextil</a></li><li><a href="butor.html">Bútortervezés</a></li><li><a href="lakberendezes.html">Komplett lakberendezés</a></li><li><a href="shop.html">Webshop</a></li></ul></div>
+    <div><h4>Kapcsolat</h4><ul><li><a href="rolam.html">Rólam</a></li><li><a href="kapcsolat.html">Kapcsolatfelvétel</a></li><li><a href="mailto:nagymaryann@gmail.com">nagymaryann@gmail.com</a></li></ul></div>
+  </div>
+  <div class="footer__base"><span>© 2026 Marie Creation · Nagy Mariann</span><span>mariecreation.hu</span></div>
+</div></footer>
+<div class="cart-veil"></div>
+<aside class="cartp" aria-label="Kosár"><div class="cartp__head"><h3>Kosár</h3><button class="cartp__close" aria-label="Bezárás">×</button></div><div class="cartp__items"></div><div class="cartp__foot"><div class="cartp__total"><span>Összesen</span><strong class="cartp__sum">0 Ft</strong></div><a class="btn btn--copper cartp__go" href="kosar.html" style="width:100%">Megrendelés</a></div></aside>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/DrawSVGPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.min.js"></script>
+<script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
+<script src="js/products.js"></script><script src="js/main.js"></script><script src="js/shop.js"></script><script src="js/pages.js"></script>
+<script>
+/* aláírás: a "Mariann" szó betűit fonal varrja fel (valódi betűkontúr, italic) */
+(function(){
+  var host = document.getElementById('about'), svg = document.getElementById('sig');
+  if (!window.opentype || !svg) { host.classList.add('no-font'); return; }
+  opentype.load('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond@5.2.5/files/cormorant-garamond-latin-500-italic.woff', function (err, font) {
+    if (err || !font) { host.classList.add('no-font'); return; }
+    var path = font.getPath('Mariann', 0, 0, 200), bb = path.getBoundingBox();
+    svg.setAttribute('viewBox', (bb.x1 - 8) + ' ' + (bb.y1 - 8) + ' ' + (bb.x2 - bb.x1 + 16) + ' ' + (bb.y2 - bb.y1 + 16));
+    var el = document.createElementNS('http://www.w3.org/2000/svg', 'path'); el.setAttribute('d', path.toPathData(2)); svg.appendChild(el);
+    /* a felrajzolódás reduced-motion alatt IS fut (David kérése: "ahogy felrajzolódik 3 mp alatt, amikor látszódik") */
+    if (typeof gsap === 'undefined' || !window.DrawSVGPlugin) { el.style.fillOpacity = 1; return; }
+    gsap.registerPlugin(DrawSVGPlugin);
+    var tl = gsap.timeline({ paused: true })
+      .from(el, { drawSVG: '0%', duration: 2.6, ease: 'power2.inOut' })
+      .to(el, { fillOpacity: 1, duration: 1, ease: 'power2.out' }, '-=.5');
+    new IntersectionObserver(function (en, io) { if (en[0].isIntersecting) { tl.play(); io.disconnect(); } }, { threshold: 0.4 }).observe(svg);
+  });
+})();
+</script>
+</body>
+</html>
