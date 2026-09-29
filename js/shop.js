@@ -95,6 +95,15 @@
     if (go) go.style.display = c.length ? '' : 'none';
   }
 
+
+  /* reszponzív kép: 800/1200 px-es webp a media/w mappából (a kártyák 300-500 px szélesek) */
+  function srcset(p) {
+    var stem = p.img.replace(/^media\//, '').replace(/\.[a-z]+$/i, '');
+    var s = 'media/w/' + stem + '-800.webp 800w';
+    if (p.w >= 1080) s += ', media/w/' + stem + '-1200.webp 1200w';
+    return s;
+  }
+
   /* ---------- shop lista ---------- */
   function renderList(cat) {
     var list = document.querySelector('.plist');
@@ -110,10 +119,10 @@
       return;
     }
     var items = P;
-    list.innerHTML = items.map(function (p) {
+    list.innerHTML = items.map(function (p, i) {
       var catName = (window.MC_CATS.find(function (c) { return c.id === p.cat; }) || {}).name || '';
       return '<a class="pcard" data-cat="' + p.cat + '" href="termek.html?id=' + p.id + '">' +
-        '<figure><img src="' + p.img + '" alt="' + p.name + '" loading="lazy"></figure>' +
+        '<figure><img src="' + p.img + '" srcset="' + srcset(p) + '" sizes="(max-width:600px) 90vw, (max-width:1100px) 45vw, 30vw" width="' + p.w + '" height="' + p.h + '" alt="' + p.name + '"' + (i < 3 ? ' loading="eager"' + (i === 0 ? ' fetchpriority="high"' : '') : ' loading="lazy"') + ' decoding="async"></figure>' +
         '<div class="pcard__meta"><span class="pcard__name">' + p.name + '</span>' +
         '<span class="pcard__price">' + ft(p.price) + '</span></div>' +
         '<div class="pcard__cat">' + catName + '</div></a>';
@@ -142,7 +151,10 @@
     var p = prod(id) || P[0];
     if (p) {
       document.title = p.name + ' · Marie Creation';
-      det.querySelector('.pdet__img').src = p.img;
+      var dimg = det.querySelector('.pdet__img');
+      if (p.w) { dimg.width = p.w; dimg.height = p.h; }
+      dimg.srcset = srcset(p); dimg.sizes = '(max-width:900px) 100vw, 55vw';
+      dimg.src = p.img;
       det.querySelector('.pdet__img').alt = p.name;
       det.querySelector('.pdet__name').textContent = p.name;
       det.querySelector('.pdet__price').textContent = ft(p.price);
@@ -167,7 +179,7 @@
         }
         rel.innerHTML = others.slice(0, 3).map(function (r) {
           return '<a class="pcard" href="termek.html?id=' + r.id + '">' +
-            '<figure><img src="' + r.img + '" alt="' + r.name + '" loading="lazy"></figure>' +
+            '<figure><img src="' + r.img + '" srcset="' + srcset(r) + '" sizes="(max-width:600px) 90vw, 30vw" width="' + r.w + '" height="' + r.h + '" alt="' + r.name + '" loading="lazy" decoding="async"></figure>' +
             '<div class="pcard__meta"><span class="pcard__name">' + r.name + '</span>' +
             '<span class="pcard__price">' + ft(r.price) + '</span></div></a>';
         }).join('');

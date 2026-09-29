@@ -1,3 +1,6 @@
+/* 2026-09-29: méretre hangolt tartalék betűk (mért szélességarány), hogy a Google-betű betöltésekor ne ugorjon a szöveg (a korábbi Century Gothic-tartalék jóval szélesebb volt) */
+@font-face{font-family:'Jost Fallback';src:local('Arial');size-adjust:94.87%;ascent-override:107%;descent-override:37%;line-gap-override:0%}
+@font-face{font-family:'Cormorant Fallback';src:local('Georgia');size-adjust:88.28%;ascent-override:104%;descent-override:32%;line-gap-override:0%}
 /* =====================================================================
    MARIE CREATION · v2
    Paletta változatlan (pergamen, éjkék, réz). Kevesebb, nagyobb elem.
@@ -9,8 +12,8 @@
   --muted:#6E6A5E;--muted-navy:#A8ACC0;
   --copper:#B07A4E;--copper-deep:#96602F;--sand:#C9A87C;
   --line:#D9CDB4;--line-navy:#4A5175;
-  --font-display:'Cormorant Garamond',Georgia,serif;
-  --font-ui:'Jost','Century Gothic',system-ui,sans-serif;
+  --font-display:'Cormorant Garamond','Cormorant Fallback',Georgia,serif;
+  --font-ui:'Jost','Jost Fallback',system-ui,sans-serif;
   --step-0:1.0625rem;--step-1:1.25rem;
   --step-2:clamp(1.6rem,2.8vw,2.3rem);
   --step-3:clamp(2.2rem,4.8vw,3.8rem);
@@ -350,3 +353,17 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
 .js body{animation:page-in .7s cubic-bezier(.23,1,.32,1) both}
 @keyframes page-in{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){html:not(.force-motion) body{animation:none}::view-transition-old(root),::view-transition-new(root){animation:none}}
+
+/* Logó-szöveg: Century Gothic Regular körvonalként (a Word-fájl szerint, 26/14 pt, nem félkövér). A szöveg a .vh-ban marad (SEO, képernyőolvasó). */
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+svg.cg{display:inline-block;vertical-align:baseline;overflow:visible}
+.nav__brand-name,.nav__brand-sub{letter-spacing:0;text-transform:none;line-height:1}
+.nav__brand-name svg.cg{display:block}
+.nav__brand-sub{font-size:calc(1.08rem * 14 / 26);margin-top:.28em}
+.nav__brand-sub svg.cg{display:block}
+
+/* 2026-09-29 mobil érintési célok (min. 44 px): szűrőgombok, menügomb */
+@media (max-width:600px){
+  .shop-filter button{min-height:44px}
+  .nav__burger{min-width:44px;min-height:44px;justify-content:center;align-items:center}
+}

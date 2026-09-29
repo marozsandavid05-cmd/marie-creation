@@ -9,7 +9,7 @@
   if (hw && hw.classList.contains('hero-w')) {
     var pinEl = hw.querySelector('.hero-w__pin'), center = hw.querySelector('.hero-w__center');
     var imgs = hw.querySelectorAll('.hero-w__img');
-    hw.querySelectorAll('.hero-w__mark .w').forEach(function (w) { w.innerHTML = '<span>' + w.textContent + '</span>'; });
+    hw.querySelectorAll('.hero-w__mark .w').forEach(function (w) { w.innerHTML = '<span>' + w.innerHTML + '</span>'; });
     if (reduce || !hasGSAP || !window.ScrollTrigger || innerWidth <= 920) {
       hw.classList.add('is-static', 'is-in');
     } else {
