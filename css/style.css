@@ -367,3 +367,7 @@ svg.cg{display:inline-block;vertical-align:baseline;overflow:visible}
   .shop-filter button{min-height:44px}
   .nav__burger{min-width:44px;min-height:44px;justify-content:center;align-items:center}
 }
+
+/* 2026-09-29: a JS-ből töltött termékrács üresen is foglalja a helyét, így lassú hálózaton nem ugrik a lap */
+.plist:empty{min-height:120vh}
+.plist--rel:empty{min-height:60vh}
