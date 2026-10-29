@@ -90,6 +90,15 @@ window.MC_PRODUCTS = [
     img: 'media/fuggony-zold-korall.jpg', w: 1639, h: 2048,
     desc: 'Kontraszt paszpóllal és mintás szegéllyel varrt függöny, hullámkarnisra vagy hagyományos karnisra. Az ár varrási díj.',
     note: 'Felméréssel és felszereléssel együtt is kérhető.'
+  },
+  {
+    id: 'felhold-taska',
+    name: 'Félhold táska vállpánttal',
+    cat: 'taska',
+    price: 14900,
+    img: 'media/felhold-taska.jpg', w: 1270, h: 1206,
+    desc: 'Kézzel varrt, félhold formájú textiltáska cipzárral és vállpánttal, nagy, grafikus mintájú anyagból. Nesszeszernek és kis táskának egyaránt.',
+    note: 'Kézműves termék, minden darab egyedi. Más anyagból is kérhető.'
   }
 ];
 
@@ -99,5 +108,6 @@ window.MC_CATS = [
   { id: 'makrame', name: 'Makramé' },
   { id: 'parna', name: 'Párnák' },
   { id: 'terito', name: 'Terítők' },
-  { id: 'meteraru', name: 'Méteráru' }
+  { id: 'meteraru', name: 'Méteráru' },
+  { id: 'taska', name: 'Textiltáskák, nesszeszerek' }
 ];
