@@ -156,12 +156,10 @@ body:has(.hero-w) .nav:not(.nav--scrolled) [class*="burger"] span,body:has(.hero
 .hero-w__lotus{filter:none;opacity:1}
 .hero-w__foot .btn--light{color:var(--navy);border-color:var(--navy)}
 .hero-w__foot .btn--light:hover{background:var(--navy);color:#F6F0E4}
-/* 2026-10-29: a nav mostantól tömör kék sáv (style.css vége), ezért a navy menü-szín a fotó fölött kikapcsolva:
 body:has(.hero-w) .nav:not(.nav--scrolled),body:has(.hero-w) .nav:not(.nav--scrolled) :is(a,span,button),
 body:has(.hero-w) .nav:not(.nav--scrolled) .nav__brand-name,body:has(.hero-w) .nav:not(.nav--scrolled) .nav__brand-sub{color:var(--navy)}
 body:has(.hero-w) .nav:not(.nav--scrolled) .nav__brand img{filter:none}
 body:has(.hero-w) .nav:not(.nav--scrolled) [class*="burger"] span,body:has(.hero-w) .nav:not(.nav--scrolled) [class*="burger"] i{background:var(--navy)}
-*/
 /* mobil: a kép a világosabb (ablak felőli) részre igazítva, hogy a navy szöveg olvasható legyen sötétítés nélkül */
 @media (max-width:920px){.hero-w__img{object-position:100% 50%}}
 

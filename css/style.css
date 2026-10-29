@@ -371,14 +371,3 @@ svg.cg{display:inline-block;vertical-align:baseline;overflow:visible}
 /* 2026-09-29: a JS-ből töltött termékrács üresen is foglalja a helyét, így lassú hálózaton nem ugrik a lap */
 .plist:empty{min-height:120vh}
 .plist--rel:empty{min-height:60vh}
-
-/* 2026-10-29 David: a felső sáv (nav) mindig a kék színben, nem fehér; menüpont, logó, kosár, burger világos */
-.nav,.nav.nav--scrolled{background:var(--navy);color:#F2EEE1;box-shadow:0 1px 0 var(--line-navy);backdrop-filter:none}
-.nav .nav__brand-name{color:#F2EEE1}
-.nav .nav__brand-sub{color:#C9C5B8}
-.nav .nav__brand img{filter:brightness(0) invert(.94)}
-.nav .nav__burger span{background:#F2EEE1}
-.nav .nav__link::after{background:var(--sand)}
-.nav .btn--copper{border-color:var(--sand);color:#F2EEE1}
-.nav .btn--copper::before{background:var(--sand)}
-.nav .btn--copper:hover{color:var(--navy-deep)}
