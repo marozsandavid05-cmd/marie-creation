@@ -230,13 +230,13 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
 .row h3{font-size:var(--step-3);line-height:1.06}
 .row p{margin-top:1rem;max-width:52ch;color:var(--muted);font-size:var(--step-1)}
 @media(max-width:760px){.row,.row--flip{grid-template-columns:1fr}.row--flip figure{order:0}}
-.feature{position:relative;overflow:hidden;min-height:80vh;display:grid;align-content:end;padding:0 var(--pad) 9vh;background:var(--navy);color:#F2EEE1}
+.feature{position:relative;overflow:hidden;min-height:max(96vh,680px);display:grid;align-content:end;padding:0 var(--pad) max(13vh,96px);background:var(--navy);color:#F2EEE1}
 .feature__bg{position:absolute;inset:0}
 .feature__bg img{width:100%;height:112%;object-fit:cover}
 .feature__bg::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(34,41,63,.9) 0%,rgba(34,41,63,.4) 50%,rgba(34,41,63,.1) 100%)}
 .feature__body{position:relative;z-index:2;max-width:720px}
 .feature__body h2{font-size:var(--step-4);color:#F2EEE1;line-height:1.02}
-.feature__body p{margin-top:1.2rem;max-width:46ch;color:#D9D5C8;font-size:var(--step-1)}
+.feature__body p{margin-top:1.6rem;max-width:46ch;color:#D9D5C8;font-size:var(--step-1)}
 .feature__body .btn{margin-top:1.8rem}
 .layers{margin-top:clamp(3rem,8vh,6rem)}
 .layer{display:grid;grid-template-columns:minmax(80px,140px) 1fr;gap:clamp(1rem,4vw,4rem);padding:clamp(2.4rem,6vh,4rem) 0;align-items:start}
@@ -371,3 +371,14 @@ svg.cg{display:inline-block;vertical-align:baseline;overflow:visible}
 /* 2026-09-29: a JS-ből töltött termékrács üresen is foglalja a helyét, így lassú hálózaton nem ugrik a lap */
 .plist:empty{min-height:120vh}
 .plist--rel:empty{min-height:60vh}
+
+/* 2026-10-29 David: a felső sáv (nav) mindig a kék színben, nem fehér; menüpont, logó, kosár, burger világos */
+.nav,.nav.nav--scrolled{background:var(--navy);color:#F2EEE1;box-shadow:0 1px 0 var(--line-navy);backdrop-filter:none}
+.nav .nav__brand-name{color:#F2EEE1}
+.nav .nav__brand-sub{color:#C9C5B8}
+.nav .nav__brand img{filter:brightness(0) invert(.94)}
+.nav .nav__burger span{background:#F2EEE1}
+.nav .nav__link::after{background:var(--sand)}
+.nav .btn--copper{border-color:var(--sand);color:#F2EEE1}
+.nav .btn--copper::before{background:var(--sand)}
+.nav .btn--copper:hover{color:var(--navy-deep)}
